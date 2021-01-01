@@ -11,6 +11,9 @@ const notesRouter = require('./routes/user/notes/notesRouter.js');
 const jobsRouter = require('./routes/user/jobs/jobsRouter.js'); 
 job;
 
+app.get('/' , (req,res)=>{
+    res.send("hello")
+})
 // questions routes 
 app.use('/questions', questionsRouter);
 
