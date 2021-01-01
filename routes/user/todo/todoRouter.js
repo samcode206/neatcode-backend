@@ -15,5 +15,15 @@ router.delete('/:id', authorize, async (req, res) =>{
    deleteToDo(req, res); 
 });
 
+// get todo 
+router.get('/', authorize, async (req ,res) => {
+     try{
+    const username = req.header('username');
+    const user = await User.findOne().where("username").equals(username);
+    res.status(200).json(user.todo);
+    }catch(err){
+        res.status(500).json({message: err.message}); 
+    }
+});
 
 module.exports = router; 
