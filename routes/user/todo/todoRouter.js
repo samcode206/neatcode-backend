@@ -3,7 +3,8 @@ express = require('express'),
 router = express.Router(),
 authorize = require('../../auth/authUtils/auth-mid.js'),
 addToDo = require('./addToDo.js'),
-deleteToDo = require('./deleteToDo.js');
+deleteToDo = require('./deleteToDo.js'),
+{User} = require('../../../db.js');
 
 // add a question to your list of toDo's 
 router.post('/:id', authorize, async (req, res) =>{
