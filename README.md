@@ -23,13 +23,13 @@ available queries
       Bits
    </li>
     <li>
-      DynamicProgramming
+      Dynamic%20Programming
    </li>
   <li>
     Graph
   </li>
     <li>
-      LinkedList
+      Linked%20List
   </li>
   <li>
     matrix
