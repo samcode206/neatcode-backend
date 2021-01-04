@@ -7,7 +7,7 @@ removeNote = require('./removeNote.js'),
 getNote = require('./addNote.js');
 
 // get note 
-router.get('/', authorize, async (req, res)=>{
+router.get('/getnote', authorize, async (req, res)=>{
     getNote(req,res); 
 });
 
