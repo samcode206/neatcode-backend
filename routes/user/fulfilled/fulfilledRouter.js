@@ -19,6 +19,17 @@ router.post('/:id', authorize, async (req, res) =>{
     }
 });
 
+router.get("/", authorize, async (req, res) =>{
+    try {
+        const username = req.header('username'); 
+        const user = await User.findOne().where("username").equals(username); 
+        res.status(200).json(user.completedQuestions); 
+    }
+    catch(err){
+        res.status(500).json({message : err.message}); 
+    }
+});
+
 // remove a question from completed list
 router.delete('/:id', authorize, async (req, res) =>{
     try{
