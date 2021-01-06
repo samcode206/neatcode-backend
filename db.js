@@ -52,6 +52,10 @@ const userSchema = new mongoose.Schema({
     notes : {type: [notesSchema] , default: []}
 });
 
+userSchema.index({
+    username : 1
+}, {unique : true}); 
+
 const Question = mongoose.model('question', questionSchema); 
 
 const User = mongoose.model('user' , userSchema); 
