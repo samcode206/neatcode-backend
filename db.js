@@ -36,8 +36,13 @@ const completedQuestionsScema = new mongoose.Schema({
 });
 
 const applicationsSchema = new mongoose.Schema({
-    title: {type: String, required: true},
-    stage: {type: String, required : true, default: 0}
+    companyName : {type: String, required: true},
+    position : {type:String},
+    dateApplied : {type: String},
+    stage : {type: String}, 
+    offer : {type : Boolean, default: false},
+    note: {type:String, default: ""} 
+
 });
 
 const userSchema = new mongoose.Schema({

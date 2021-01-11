@@ -2,16 +2,10 @@ const {User} = require('../../../db.js');
 
 module.exports = async (req ,res) => {
     try{
-        const jobTitle = req.body.title; 
-        const stage = req.body.stage; 
+        const body = req.body; 
         const username = req.header('username');
         const user = await User.findOne().where("username").equals(username);
-        
-        user.applications.push({
-            title: jobTitle, 
-            stage : stage
-        }); 
-
+        user.applications.push(body); 
         user.save(err=>saveHelper(err));
         res.status(200).json(user.applications); 
 
