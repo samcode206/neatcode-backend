@@ -4,14 +4,12 @@ module.exports = async (req ,res) => {
     try{ 
         const {id} = req.params; 
         const username = req.header('username');
-        const title = req.body.title;
-        const stage = req.body.stage; 
+        const body = req.body; 
         const user = await User.findOne().where("username").equals(username);
         user.applications.pull({_id : id});
         user.applications.push({
-            _id : id, 
-            title : title,
-            stage : stage
+            _id : id,
+            ...body
         })
         user.save(err => saveHelper(err)); 
         res.status(200).json(user.applications); 
